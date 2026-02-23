@@ -34,7 +34,7 @@
   .app-logo{font-family:var(--cond);font-weight:900;font-size:22px;letter-spacing:4px;color:var(--accent);text-transform:uppercase}
   .app-logo span{color:var(--text-dim);font-weight:300}
   #topbar-right{display:flex;gap:8px;align-items:center}
-  .week-badge{font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:2px;padding:4px 10px;border-radius:2px;border:1px solid var(--accent);color:var(--accent);background:var(--accent-dim);text-transform:uppercase;cursor:pointer}
+  .week-badge{font-family:var(--cond);font-size:11px;font-weight:700;letter-spacing:2px;padding:4px 10px;border-radius:2px;border:1px solid var(--accent);color:var(--accent);background:var(--accent-dim);text-transform:uppercase;cursor:pointer;white-space:nowrap}
 
   #nav{display:flex;border-bottom:1px solid var(--border);background:var(--bg1);flex-shrink:0}
   .nav-btn{flex:1;padding:10px 4px;border:none;background:none;color:var(--text-dim);font-family:var(--cond);font-weight:700;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;position:relative;transition:color .2s;display:flex;flex-direction:column;align-items:center;gap:3px}
@@ -51,7 +51,7 @@
   .card{background:var(--bg1);border:1px solid var(--border);border-radius:2px;margin:12px 12px 0;padding:14px;position:relative;overflow:hidden}
   .card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--border-bright),transparent)}
   .card-title{font-family:var(--cond);font-weight:700;font-size:11px;letter-spacing:3px;color:var(--text-dim);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:8px}
-  .card-title .accent-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 6px var(--accent);flex-shrink:0}
+  .card-title .dot{width:5px;height:5px;border-radius:50%;background:var(--accent);box-shadow:0 0 6px var(--accent);flex-shrink:0}
 
   .section-header{font-family:var(--cond);font-weight:900;font-size:28px;letter-spacing:2px;text-transform:uppercase;padding:16px 16px 4px;color:var(--text);line-height:1}
   .section-sub{font-size:12px;color:var(--text-dim);font-weight:300;padding:0 16px 4px;letter-spacing:1px}
@@ -63,7 +63,7 @@
   .btn-ghost:active{background:var(--bg3)}
   .btn-sm{padding:6px 12px;font-size:11px}
   .btn-full{width:100%;display:block;text-align:center}
-  .btn-icon{width:36px;height:36px;border-radius:2px;padding:0;display:flex;align-items:center;justify-content:center;background:var(--bg3);border:1px solid var(--border);color:var(--text-dim);cursor:pointer}
+  .btn-icon{width:36px;height:36px;border-radius:2px;padding:0;display:flex;align-items:center;justify-content:center;background:var(--bg3);border:1px solid var(--border);color:var(--text-dim);cursor:pointer;flex-shrink:0}
   .btn-icon:active{background:var(--border)}
 
   .input-group{margin-bottom:12px}
@@ -71,14 +71,14 @@
   input[type=text],input[type=number],select,textarea{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:2px;color:var(--text);font-family:var(--mono);font-size:14px;padding:9px 11px;outline:none;transition:border-color .15s;-webkit-appearance:none;appearance:none}
   input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent-glow)}
   select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:30px}
-  textarea{resize:vertical;min-height:64px;font-size:13px}
+  textarea{resize:vertical;min-height:60px;font-size:13px}
   input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:4px;background:var(--bg3);border-radius:2px;outline:none}
   input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--accent);box-shadow:0 0 8px var(--accent-glow);cursor:pointer}
 
   .tag{display:inline-block;font-family:var(--cond);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border-radius:2px;font-weight:700}
   .tag-green{background:var(--green-dim);color:var(--green)}
-  .tag-red{background:var(--red-dim);color:var(--red)}
   .tag-orange{background:var(--accent-dim);color:var(--accent)}
+  .tag-red{background:var(--red-dim);color:var(--red)}
   .tag-gray{background:var(--bg3);color:var(--text-dim)}
 
   .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -95,87 +95,80 @@
   .modal-handle{width:36px;height:4px;background:var(--border-bright);border-radius:2px;margin:0 auto 20px;display:block}
   .modal-title{font-family:var(--cond);font-weight:900;font-size:22px;letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;color:var(--accent)}
 
-  .feedback-banner{border-radius:2px;padding:12px 14px;margin:0 12px 0;display:none;border-left:3px solid;animation:slideDown .3s ease}
+  .fb-banner{border-radius:2px;padding:12px 14px;margin:12px 12px 0;display:none;border-left:3px solid;animation:slideDown .3s ease}
   @keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-  .feedback-banner.show{display:block}
-  .feedback-banner.good{background:var(--green-dim);border-color:var(--green)}
-  .feedback-banner.warn{background:#1c1a00;border-color:#a07700}
-  .feedback-banner.drop{background:var(--red-dim);border-color:var(--red)}
-  .feedback-banner.up{background:var(--accent-dim);border-color:var(--accent)}
-  .feedback-title{font-family:var(--cond);font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
-  .feedback-body{font-size:13px;color:var(--text-dim);line-height:1.4}
+  .fb-banner.show{display:block}
+  .fb-banner.good{background:var(--green-dim);border-color:var(--green)}
+  .fb-banner.warn{background:#1c1a00;border-color:#a07700}
+  .fb-banner.drop{background:var(--red-dim);border-color:var(--red)}
+  .fb-banner.up{background:var(--accent-dim);border-color:var(--accent)}
+  .fb-title{font-family:var(--cond);font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase;margin-bottom:4px}
+  .fb-body{font-size:13px;color:var(--text-dim);line-height:1.4}
 
   .set-row{display:flex;align-items:center;gap:8px;padding:10px 0;border-bottom:1px solid var(--border);animation:fadeIn .2s ease}
   @keyframes fadeIn{from{opacity:0;transform:translateX(-4px)}to{opacity:1;transform:none}}
   .set-row:last-child{border-bottom:none}
   .set-num{font-family:var(--mono);font-size:11px;color:var(--text-faint);width:20px;flex-shrink:0}
-  .set-data{flex:1;display:flex;gap:6px;flex-wrap:wrap}
-  .set-chip{font-family:var(--mono);font-size:12px;padding:3px 7px;background:var(--bg2);border:1px solid var(--border);border-radius:2px;color:var(--text-dim)}
-  .set-chip.pr{border-color:var(--accent);color:var(--accent);background:var(--accent-glow)}
-  .set-rpe-chip{font-family:var(--mono);font-size:12px;padding:3px 7px;border-radius:2px;border:1px solid}
-  .rpe-low{color:var(--green);border-color:var(--green);background:var(--green-dim)}
-  .rpe-med{color:#a07700;border-color:#a07700;background:#1c1a00}
-  .rpe-high{color:var(--accent);border-color:var(--accent-dim);background:var(--accent-glow)}
-  .rpe-max{color:var(--red);border-color:var(--red-dim);background:var(--red-dim)}
+  .set-data{flex:1;display:flex;gap:5px;flex-wrap:wrap}
+  .chip{font-family:var(--mono);font-size:12px;padding:3px 7px;background:var(--bg2);border:1px solid var(--border);border-radius:2px;color:var(--text-dim)}
+  .chip.pr{border-color:var(--accent);color:var(--accent);background:var(--accent-glow)}
+  .rpe-chip{font-family:var(--mono);font-size:12px;padding:3px 7px;border-radius:2px;border:1px solid}
+  .rpe-lo{color:var(--green);border-color:var(--green);background:var(--green-dim)}
+  .rpe-md{color:#a07700;border-color:#a07700;background:#1c1a00}
+  .rpe-hi{color:var(--accent);border-color:var(--accent-dim);background:var(--accent-glow)}
+  .rpe-mx{color:var(--red);border-color:var(--red-dim);background:var(--red-dim)}
 
-  .exercise-item{padding:12px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:12px}
-  .exercise-item:last-child{border-bottom:none}
-  .exercise-name{font-weight:500;font-size:15px;flex:1}
-  .exercise-meta{font-family:var(--cond);font-size:11px;color:var(--text-dim);letter-spacing:1px;margin-top:2px}
+  .ex-item{padding:11px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:10px}
+  .ex-item:last-child{border-bottom:none}
+  .ex-name{font-weight:500;font-size:15px}
+  .ex-meta{font-family:var(--cond);font-size:11px;color:var(--text-dim);letter-spacing:1px;margin-top:2px}
 
-  .day-pills{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
-  .day-pill{font-family:var(--cond);font-weight:700;font-size:11px;letter-spacing:1.5px;padding:5px 10px;border-radius:2px;cursor:pointer;text-transform:uppercase;border:1px solid var(--border);background:var(--bg2);color:var(--text-dim);transition:all .15s}
-  .day-pill.active{background:var(--accent);color:#000;border-color:var(--accent);box-shadow:0 0 12px var(--accent-glow)}
-  .day-pill.has-workout{border-color:var(--border-bright);color:var(--text)}
+  /* DAY + WEEK SELECTORS */
+  .pills{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}
+  .pill{font-family:var(--cond);font-weight:700;font-size:11px;letter-spacing:1.5px;padding:5px 9px;border-radius:2px;cursor:pointer;text-transform:uppercase;border:1px solid var(--border);background:var(--bg2);color:var(--text-dim);transition:all .15s}
+  .pill.active{background:var(--accent);color:#000;border-color:var(--accent);box-shadow:0 0 10px var(--accent-glow)}
+  .pill.has-data{border-color:var(--border-bright);color:var(--text)}
+  /* week pills use blue tones to differentiate from day pills */
+  .wpill{font-family:var(--cond);font-weight:700;font-size:11px;letter-spacing:1.5px;padding:5px 12px;border-radius:2px;cursor:pointer;text-transform:uppercase;border:1px solid var(--border);background:var(--bg2);color:var(--text-dim);transition:all .15s;position:relative}
+  .wpill.active{background:var(--accent);color:#000;border-color:var(--accent);box-shadow:0 0 10px var(--accent-glow)}
+  .wpill.has-data{border-color:var(--border-bright);color:var(--text)}
+  .wpill.current-wk::after{content:'NOW';position:absolute;top:-7px;right:2px;font-size:7px;letter-spacing:1px;color:var(--accent);font-family:var(--cond)}
 
-  .week-tabs{display:flex;gap:4px;margin-bottom:10px}
-  .week-tab{flex:1;padding:8px 4px;border:1px solid var(--border);background:var(--bg2);border-radius:2px;font-family:var(--cond);font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);text-align:center;line-height:1.3}
-  .week-tab.current{border-color:var(--accent);color:var(--accent);background:var(--accent-dim)}
-  .week-tab.done{border-color:var(--green-dim);color:var(--green);background:var(--green-dim)}
-
-  .block-week-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;padding:8px 10px;background:var(--bg2);border:1px solid var(--border);border-radius:2px}
-  .block-week-row.current-w{border-color:var(--accent)}
-  .block-week-num{font-family:var(--cond);font-weight:700;font-size:12px;color:var(--text-dim);letter-spacing:1px;width:32px;flex-shrink:0;line-height:1.3}
-  .block-week-row.current-w .block-week-num{color:var(--accent)}
-
+  /* REST TIMER */
   #rest-timer{position:fixed;bottom:calc(var(--safe-bottom) + 70px);left:12px;right:12px;background:var(--bg2);border:1px solid var(--accent);border-radius:2px;padding:10px 14px;display:none;align-items:center;gap:12px;z-index:500;box-shadow:0 0 20px var(--accent-glow);animation:slideUp .3s ease}
   @keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:none;opacity:1}}
   #rest-timer.show{display:flex}
-  #rest-timer-bar{height:3px;background:var(--bg3);border-radius:1px;margin-top:4px}
-  #rest-timer-fill{height:100%;background:var(--accent);border-radius:1px;transition:width 1s linear;box-shadow:0 0 6px var(--accent)}
+  #rest-bar{height:3px;background:var(--bg3);border-radius:1px;margin-top:4px}
+  #rest-fill{height:100%;background:var(--accent);border-radius:1px;transition:width 1s linear;box-shadow:0 0 6px var(--accent)}
   .timer-wrap{flex:1}
 
   .muscle-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
   .muscle-name{font-family:var(--cond);font-size:12px;color:var(--text-dim);text-transform:uppercase;letter-spacing:1px;width:90px;flex-shrink:0}
-  .muscle-bar-wrap{flex:1;height:8px;background:var(--bg3);border-radius:1px;overflow:hidden}
+  .muscle-bar-bg{flex:1;height:8px;background:var(--bg3);border-radius:1px;overflow:hidden}
   .muscle-bar{height:100%;border-radius:1px;transition:width .5s cubic-bezier(.34,1.56,.64,1)}
-  .muscle-sets{font-family:var(--mono);font-size:11px;color:var(--text-dim);width:30px;text-align:right;flex-shrink:0}
+  .muscle-sets{font-family:var(--mono);font-size:11px;width:30px;text-align:right;flex-shrink:0}
 
-  .divider-label{display:flex;align-items:center;gap:8px;margin:12px 0;font-family:var(--cond);font-size:10px;letter-spacing:2px;color:var(--text-faint);text-transform:uppercase}
-  .divider-label::before,.divider-label::after{content:'';flex:1;height:1px;background:var(--border)}
+  .divider-lbl{display:flex;align-items:center;gap:8px;margin:12px 0;font-family:var(--cond);font-size:10px;letter-spacing:2px;color:var(--text-faint);text-transform:uppercase}
+  .divider-lbl::before,.divider-lbl::after{content:'';flex:1;height:1px;background:var(--border)}
 
   .pr-badge{display:inline-flex;align-items:center;gap:4px;font-family:var(--cond);font-size:10px;font-weight:700;letter-spacing:1px;padding:2px 7px;border-radius:2px;background:var(--accent-glow);border:1px solid var(--accent);color:var(--accent)}
 
-  .empty-state{text-align:center;padding:40px 24px;color:var(--text-faint)}
-  .empty-icon{font-size:32px;margin-bottom:12px;opacity:.4}
-  .empty-text{font-family:var(--cond);font-size:14px;letter-spacing:2px;text-transform:uppercase}
-  .empty-sub{font-size:13px;margin-top:6px}
+  .empty{text-align:center;padding:32px 16px;color:var(--text-faint)}
+  .empty-icon{font-size:28px;margin-bottom:10px;opacity:.4}
+  .empty-text{font-family:var(--cond);font-size:13px;letter-spacing:2px;text-transform:uppercase}
+  .empty-sub{font-size:12px;margin-top:5px}
 
-  .cycle-banner{margin:12px;padding:14px;background:var(--accent-dim);border:1px solid var(--accent);border-radius:2px}
-  .cycle-banner-title{font-family:var(--cond);font-weight:900;font-size:16px;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:6px}
-  .cycle-banner-body{font-size:13px;color:var(--text-dim);margin-bottom:12px;line-height:1.5}
+  .prog-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+  .prog-btn{padding:13px 8px;border:1px solid var(--border);background:var(--bg2);border-radius:2px;text-align:center;cursor:pointer;transition:all .15s}
+  .prog-btn.sel{border-color:var(--accent);background:var(--accent-dim)}
+  .prog-btn .pi{font-size:22px;margin-bottom:5px}
+  .prog-btn .pl{font-family:var(--cond);font-weight:700;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--text)}
+  .prog-btn.sel .pl{color:var(--accent)}
+  .prog-btn .ps{font-size:11px;color:var(--text-dim);margin-top:2px}
 
-  .prog-type-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
-  .prog-type-btn{padding:14px 10px;border:1px solid var(--border);background:var(--bg2);border-radius:2px;text-align:center;cursor:pointer;transition:all .15s}
-  .prog-type-btn.selected{border-color:var(--accent);background:var(--accent-dim)}
-  .prog-type-btn .pt-icon{font-size:24px;margin-bottom:6px}
-  .prog-type-btn .pt-label{font-family:var(--cond);font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--text)}
-  .prog-type-btn.selected .pt-label{color:var(--accent)}
-  .prog-type-btn .pt-sub{font-size:11px;color:var(--text-dim);margin-top:3px}
-
-  .flex-between{display:flex;justify-content:space-between;align-items:center}
-  .gap-8{gap:8px}.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mb-8{margin-bottom:8px}
-  .text-accent{color:var(--accent)}.text-dim{color:var(--text-dim)}.mono{font-family:var(--mono)}
+  .flex-bet{display:flex;justify-content:space-between;align-items:center}
+  .gap8{gap:8px}.mt8{margin-top:8px}.mt12{margin-top:12px}.mt16{margin-top:16px}.mb8{margin-bottom:8px}
+  .text-acc{color:var(--accent)}.text-dim{color:var(--text-dim)}.mono{font-family:var(--mono)}
   canvas{width:100%!important}
   @keyframes popIn{0%{transform:scale(0);opacity:0}60%{transform:scale(1.2)}100%{transform:scale(1);opacity:1}}
   .pop{animation:popIn .3s cubic-bezier(.34,1.56,.64,1)}
@@ -186,7 +179,7 @@
   <div id="topbar">
     <div class="app-logo">CHAR<span>GED</span></div>
     <div id="topbar-right">
-      <div id="workout-timer" class="mono" style="font-size:14px;color:var(--text-dim);display:none"></div>
+      <div id="wk-timer" class="mono" style="font-size:14px;color:var(--text-dim);display:none"></div>
       <div id="week-badge-wrap"></div>
       <button class="btn-icon" onclick="openModal('settings-modal')">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
@@ -224,71 +217,71 @@
     </div>
   </div>
 
+  <!-- REST TIMER -->
   <div id="rest-timer">
     <div class="timer-wrap">
-      <div class="flex-between mb-8">
+      <div class="flex-bet mb8">
         <div>
-          <div id="rest-timer-label" style="font-family:var(--cond);font-size:10px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase">Rest Timer</div>
-          <div id="rest-timer-reason" style="font-size:10px;color:var(--text-faint);font-family:var(--cond);letter-spacing:1px;margin-top:1px"></div>
+          <div id="rest-lbl" style="font-family:var(--cond);font-size:10px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase">Rest</div>
+          <div id="rest-rsn" style="font-size:10px;color:var(--text-faint);font-family:var(--cond);letter-spacing:1px;margin-top:1px"></div>
         </div>
-        <div id="rest-timer-count" style="font-family:var(--mono);font-size:28px;color:var(--accent)">1:30</div>
+        <div id="rest-count" style="font-family:var(--mono);font-size:28px;color:var(--accent)">1:30</div>
       </div>
-      <div id="rest-timer-bar"><div id="rest-timer-fill" style="width:100%"></div></div>
+      <div id="rest-bar"><div id="rest-fill" style="width:100%"></div></div>
     </div>
-    <button class="btn-icon" onclick="stopRestTimer()" style="flex-shrink:0">
+    <button class="btn-icon" onclick="stopRest()" style="flex-shrink:0">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
   </div>
 </div>
 
 <!-- MODALS -->
-<div class="modal-overlay" id="log-set-modal">
+<div class="modal-overlay" id="log-modal">
   <div class="modal">
     <div class="modal-handle"></div>
-    <div class="modal-title" id="log-modal-title">Log Set</div>
-    <div id="log-modal-body"></div>
+    <div class="modal-title" id="log-title">Log Set</div>
+    <div id="log-body"></div>
   </div>
 </div>
 
-<div class="modal-overlay" id="add-exercise-modal">
+<div class="modal-overlay" id="add-ex-modal">
   <div class="modal">
     <div class="modal-handle"></div>
-    <div class="modal-title">Add Exercise</div>
-    <div class="input-group"><label class="input-label">Exercise Name</label><input type="text" id="ex-name-input" placeholder="e.g. Bench Press"></div>
+    <div class="modal-title" id="add-ex-title">Add Exercise</div>
+    <div class="input-group"><label class="input-label">Exercise Name</label><input type="text" id="ex-name" placeholder="e.g. Bench Press"></div>
     <div class="input-group"><label class="input-label">Muscle Group</label>
-      <select id="ex-muscle-input">
-        <option value="Chest">Chest</option><option value="Back">Back</option><option value="Shoulders">Shoulders</option>
-        <option value="Biceps">Biceps</option><option value="Triceps">Triceps</option><option value="Legs">Legs</option>
-        <option value="Glutes">Glutes</option><option value="Core">Core</option><option value="Calves">Calves</option>
+      <select id="ex-muscle">
+        <option>Chest</option><option>Back</option><option>Shoulders</option>
+        <option>Biceps</option><option>Triceps</option><option>Legs</option>
+        <option>Glutes</option><option>Core</option><option>Calves</option>
       </select>
     </div>
-    <div class="input-group"><label class="input-label">Target Sets</label><input type="number" id="ex-sets-input" value="4" min="1" max="10"></div>
-    <div id="ex-weekly-fields">
-      <div class="input-group"><label class="input-label">Rep Range</label>
-        <select id="ex-reprange-input">
-          <option value="1-3">1–3 (Max Strength)</option><option value="4-6">4–6 (Strength)</option>
-          <option value="6-8">6–8 (Strength-Hyp)</option><option value="8-12" selected>8–12 (Hypertrophy)</option>
-          <option value="12-15">12–15 (Hyp-Endurance)</option><option value="15-20">15–20 (Endurance)</option>
+    <div style="display:flex;gap:8px">
+      <div class="input-group" style="flex:1"><label class="input-label">Sets</label><input type="number" id="ex-sets" value="4" min="1" max="10"></div>
+      <div class="input-group" style="flex:1"><label class="input-label">Rep Range</label>
+        <select id="ex-rr">
+          <option value="1-3">1–3 Max Strength</option>
+          <option value="4-6">4–6 Strength</option>
+          <option value="6-8">6–8 Str-Hyp</option>
+          <option value="8-12" selected>8–12 Hypertrophy</option>
+          <option value="12-15">12–15 Hyp-End</option>
+          <option value="15-20">15–20 Endurance</option>
         </select>
       </div>
     </div>
-    <div id="ex-block-fields" style="display:none">
-      <div style="font-family:var(--cond);font-size:10px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase;margin-bottom:8px">Rep Range Per Week</div>
-      <div id="block-week-rows"></div>
-    </div>
-    <div class="input-group"><label class="input-label">Base Weight (kg)</label><input type="number" id="ex-weight-input" placeholder="60" step="0.5"></div>
+    <div class="input-group"><label class="input-label">Starting Weight (kg)</label><input type="number" id="ex-weight" placeholder="60" step="0.5"></div>
     <div style="display:flex;gap:8px;margin-top:16px">
-      <button class="btn btn-ghost" style="flex:1" onclick="closeModal('add-exercise-modal')">Cancel</button>
+      <button class="btn btn-ghost" style="flex:1" onclick="closeModal('add-ex-modal')">Cancel</button>
       <button class="btn btn-primary" style="flex:1" onclick="saveExercise()">Add</button>
     </div>
   </div>
 </div>
 
-<div class="modal-overlay" id="advance-week-modal">
+<div class="modal-overlay" id="advance-modal">
   <div class="modal">
     <div class="modal-handle"></div>
-    <div class="modal-title" id="advance-modal-title">Advance Week</div>
-    <div id="advance-modal-body"></div>
+    <div class="modal-title" id="advance-title">Advance Week</div>
+    <div id="advance-body"></div>
   </div>
 </div>
 
@@ -297,51 +290,48 @@
     <div class="modal-handle"></div>
     <div class="modal-title">Settings</div>
     <div style="font-family:var(--cond);font-size:10px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase;margin-bottom:10px">Program Structure</div>
-    <div class="prog-type-grid">
-      <div class="prog-type-btn selected" id="ptype-weekly" onclick="setProgramType('weekly')">
-        <div class="pt-icon">🔁</div><div class="pt-label">Weekly</div><div class="pt-sub">Same rep ranges every week</div>
+    <div class="prog-grid">
+      <div class="prog-btn sel" id="pt-weekly" onclick="setProgType('weekly')">
+        <div class="pi">🔁</div><div class="pl">Weekly</div><div class="ps">Same exercises every week</div>
       </div>
-      <div class="prog-type-btn" id="ptype-block" onclick="setProgramType('block')">
-        <div class="pt-icon">📅</div><div class="pt-label">Block (4-week)</div><div class="pt-sub">Rep ranges change each week</div>
+      <div class="prog-btn" id="pt-block" onclick="setProgType('block')">
+        <div class="pi">📅</div><div class="pl">Block</div><div class="ps">Different exercises each week</div>
       </div>
     </div>
-    <div id="block-length-row" style="display:none" class="input-group">
+    <div id="bl-row" style="display:none" class="input-group">
       <label class="input-label">Block Length (weeks)</label>
-      <select id="setting-block-length">
-        <option value="3">3 weeks</option><option value="4" selected>4 weeks</option>
-        <option value="5">5 weeks</option><option value="6">6 weeks</option>
-      </select>
+      <select id="s-bl"><option value="3">3 weeks</option><option value="4" selected>4 weeks</option><option value="5">5 weeks</option><option value="6">6 weeks</option></select>
     </div>
-    <div class="divider-label">Rest Timers</div>
+    <div class="divider-lbl">Rest Timers</div>
     <div class="input-group">
       <label class="input-label">Rest Time Multiplier</label>
-      <select id="setting-rest">
+      <select id="s-rest">
         <option value="0.75">0.75x — Shorter</option>
         <option value="1.0" selected>1.0x — Default (evidence-based)</option>
         <option value="1.25">1.25x — Slightly longer</option>
         <option value="1.5">1.5x — Longer</option>
         <option value="2.0">2.0x — Max</option>
       </select>
-      <div style="margin-top:6px;font-family:var(--cond);font-size:10px;color:var(--text-faint);letter-spacing:1px;line-height:1.6">1–3 reps: 4 min · 4–6: 3 min · 6–8: 2:30<br>8–12: 1:30 · 12–15: 1 min · 15–20: 40s</div>
+      <div style="margin-top:5px;font-family:var(--cond);font-size:10px;color:var(--text-faint);letter-spacing:1px;line-height:1.6">1–3 reps: 4 min · 4–6: 3 min · 6–8: 2:30<br>8–12: 1:30 · 12–15: 1 min · 15–20: 40s</div>
     </div>
-    <div class="divider-label">Overload Rules</div>
+    <div class="divider-lbl">Overload Rules</div>
     <div style="display:flex;gap:8px">
-      <div class="input-group" style="flex:1"><label class="input-label">Drop % (RPE too high)</label><input type="number" id="setting-drop" value="10" min="5" max="25"></div>
-      <div class="input-group" style="flex:1"><label class="input-label">Increase % (RPE too low)</label><input type="number" id="setting-increase" value="5" min="2" max="15"></div>
+      <div class="input-group" style="flex:1"><label class="input-label">Drop % (too hard)</label><input type="number" id="s-drop" value="10" min="5" max="25"></div>
+      <div class="input-group" style="flex:1"><label class="input-label">Increase % (too easy)</label><input type="number" id="s-inc" value="5" min="2" max="15"></div>
     </div>
-    <button class="btn btn-primary btn-full mt-16" onclick="saveSettings();closeModal('settings-modal')">Save Settings</button>
+    <button class="btn btn-primary btn-full mt16" onclick="saveSettings();closeModal('settings-modal')">Save</button>
   </div>
 </div>
 
 <script>
-// ═══════════════════════════════════
+// ════════════════════════════════════════
 // CONSTANTS
-// ═══════════════════════════════════
+// ════════════════════════════════════════
 const DAYS = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
 
 const RPE_TARGETS = {'1-3':9.5,'4-6':8.75,'6-8':8.25,'8-12':7.75,'12-15':7.25,'15-20':6.75};
 
-const REST_TIMES = {
+const REST_CFG = {
   '1-3': {base:240,label:'Max Strength',reason:'CNS & neural recovery'},
   '4-6': {base:180,label:'Strength',reason:'Heavy load recovery'},
   '6-8': {base:150,label:'Str-Hyp',reason:'Balanced recovery'},
@@ -350,250 +340,209 @@ const REST_TIMES = {
   '15-20':{base:40,label:'Endurance',reason:'Minimal rest, sustained effort'},
 };
 
-// % of 1RM by rep count
-const ONE_RM_PCT = {1:1.00,2:0.97,3:0.94,4:0.91,5:0.88,6:0.85,7:0.83,8:0.80,9:0.77,10:0.75,11:0.72,12:0.70,13:0.68,14:0.66,15:0.65,16:0.63,17:0.62,18:0.61,19:0.60,20:0.58};
+// % of estimated 1RM for a given rep count
+const PCT_1RM = {1:1.00,2:0.97,3:0.94,4:0.91,5:0.88,6:0.85,7:0.83,8:0.80,9:0.77,10:0.75,11:0.72,12:0.70,13:0.68,14:0.66,15:0.65,16:0.63,17:0.62,18:0.61,19:0.60,20:0.58};
 
-const REP_LABELS = {'1-3':'1–3 (Max Strength)','4-6':'4–6 (Strength)','6-8':'6–8 (Str-Hyp)','8-12':'8–12 (Hypertrophy)','12-15':'12–15 (Hyp-End)','15-20':'15–20 (Endurance)'};
-
-// ═══════════════════════════════════
+// ════════════════════════════════════════
 // STATE
-// ═══════════════════════════════════
-let state = {
-  program: {type:'weekly', blockLength:4, currentWeek:1, cycleCount:1, showCycleReset:false},
-  plan: {},
+// ════════════════════════════════════════
+// Plan structure (block mode):
+//   plan[day][week] = [ {id, name, muscle, sets, repRange, baseWeight}, ... ]
+// Plan structure (weekly mode):
+//   plan[day][1]   = [ exercises ]   (week key is always "1")
+//
+// Sessions:
+//   { date, day, week, exercises: [ {exerciseId, name, sets:[...]} ] }
+
+let S = {
+  prog: {type:'weekly', blockLen:4, curWeek:1, cycleCount:1},
+  plan: {},        // plan[day][weekNum] = [exercise]
   sessions: [],
-  settings: {restMultiplier:1.0, dropPct:10, increasePct:5},
-  activePlanDay: 'Monday',
-  currentSession: null,
-  workoutStartTime: null,
-  workoutTimerInterval: null,
-  restTimerInterval: null,
+  settings: {restMult:1.0, dropPct:10, incPct:5},
+  planDay: 'Monday',
+  planWeek: 1,
+  session: null,
+  wkTimerInterval: null,
+  restInterval: null,
+  wkStart: null,
 };
 
-function loadState() {
+function load() {
   try {
-    const saved = localStorage.getItem('charged-v2');
-    if (saved) {
-      const p = JSON.parse(saved);
-      state.program  = {...state.program,  ...(p.program  || {})};
-      state.plan     = p.plan     || {};
-      state.sessions = p.sessions || [];
-      state.settings = {...state.settings, ...(p.settings || {})};
-    }
-  } catch(e) {}
+    const d = JSON.parse(localStorage.getItem('charged-v3')||'{}');
+    if (d.prog)     S.prog     = {...S.prog,     ...d.prog};
+    if (d.plan)     S.plan     = d.plan;
+    if (d.sessions) S.sessions = d.sessions;
+    if (d.settings) S.settings = {...S.settings, ...d.settings};
+    S.planWeek = S.prog.curWeek;
+  } catch(e){}
 }
 
-function saveState() {
-  localStorage.setItem('charged-v2', JSON.stringify({
-    program:state.program, plan:state.plan,
-    sessions:state.sessions, settings:state.settings,
+function save() {
+  localStorage.setItem('charged-v3', JSON.stringify({
+    prog:S.prog, plan:S.plan, sessions:S.sessions, settings:S.settings
   }));
 }
 
-loadState();
+load();
 
-// ═══════════════════════════════════
-// PERIODIZATION HELPERS
-// ═══════════════════════════════════
-const isBlock   = () => state.program.type === 'block';
-const curWeek   = () => state.program.currentWeek;
-const blockLen  = () => state.program.blockLength || 4;
+// ════════════════════════════════════════
+// HELPERS
+// ════════════════════════════════════════
+const isBlock  = () => S.prog.type === 'block';
+const curWeek  = () => S.prog.curWeek;
+const blockLen = () => S.prog.blockLen || 4;
+const planKey  = (day, wk) => { const w = isBlock() ? wk : 1; return (S.plan[day] || {})[w] || []; };
 
-function getExRepRange(ex) {
-  if (!isBlock() || !ex.weeks) return ex.repRange || '8-12';
-  const wk = curWeek() - 1;
-  return (ex.weeks[Math.min(wk, ex.weeks.length-1)] || ex.weeks[0]).repRange;
-}
+// Get exercises for today's session (current week)
+const todayExercises = (day) => planKey(day, curWeek());
 
-function getExTargetRPE(ex) {
-  if (!isBlock() || !ex.weeks) return RPE_TARGETS[ex.repRange] || 7.5;
-  const wk = curWeek() - 1;
-  const w  = ex.weeks[Math.min(wk, ex.weeks.length-1)] || ex.weeks[0];
-  return w.targetRPE || RPE_TARGETS[w.repRange] || 7.5;
-}
-
-// ═══════════════════════════════════
-// 1RM ENGINE
-// ═══════════════════════════════════
-const calcEpley = (w, r) => r === 1 ? w : Math.round(w * (1 + r/30) * 10) / 10;
-const roundW    = w => Math.round(w * 2) / 2;
-
-function getBest1RM(exerciseId) {
-  let best = 0;
-  for (const s of state.sessions)
+// All unique exercise names ever used (for 1RM lookup across name)
+function allExerciseSessions(exId) {
+  const sets = [];
+  for (const s of S.sessions)
     for (const ex of s.exercises)
-      if (ex.exerciseId === exerciseId)
-        for (const set of ex.sets) { const e = calcEpley(set.weight, set.reps); if (e > best) best = e; }
+      if (ex.exerciseId === exId)
+        sets.push(...ex.sets);
+  return sets;
+}
+
+const epley   = (w, r) => r === 1 ? w : Math.round(w * (1 + r/30) * 10) / 10;
+const roundW  = w => Math.round(w * 2) / 2;
+const fmtT    = s => `${Math.floor(s/60)}:${(s%60).toString().padStart(2,'0')}`;
+const rpeClass= r => r<=6?'rpe-lo':r<=7.5?'rpe-md':r<=8.5?'rpe-hi':'rpe-mx';
+
+function best1RM(exId) {
+  let best = 0;
+  for (const s of allExerciseSessions(exId)) {
+    const e = epley(s.weight, s.reps); if (e > best) best = e;
+  }
   return best;
 }
 
-function weightFor1RM(oneRM, repRange) {
+function weightFrom1RM(oneRM, repRange) {
   if (!oneRM) return null;
-  const [lo, hi] = repRange.split('-').map(Number);
-  // Use min reps of the range (heaviest end = more conservative safe estimate)
-  const pct = ONE_RM_PCT[lo] || 0.75;
-  return roundW(oneRM * pct);
+  const lo = parseInt(repRange.split('-')[0]);
+  return roundW(oneRM * (PCT_1RM[lo] || 0.75));
 }
 
-// ═══════════════════════════════════
+function getRestConf(rr) {
+  const c = REST_CFG[rr];
+  if (!c) return {secs:90,label:'Rest',reason:''};
+  return {secs: Math.round(c.base * (S.settings.restMult||1)), label:c.label, reason:c.reason};
+}
+
+// ════════════════════════════════════════
 // OVERLOAD ENGINE
-// ═══════════════════════════════════
-const getRPEClass = rpe => rpe <= 6 ? 'rpe-low' : rpe <= 7.5 ? 'rpe-med' : rpe <= 8.5 ? 'rpe-high' : 'rpe-max';
-
-function getRestConf(repRange) {
-  const c = REST_TIMES[repRange];
-  if (!c) return {seconds:90,label:'Rest',reason:''};
-  return {seconds: Math.round(c.base * (state.settings.restMultiplier||1)), label:c.label, reason:c.reason};
-}
-
-function overloadFeedback(ex, setData) {
-  const rr     = getExRepRange(ex);
-  const target = getExTargetRPE(ex);
+// ════════════════════════════════════════
+function feedback(ex, setData) {
+  const target = RPE_TARGETS[ex.repRange] || 7.5;
   const diff   = setData.rpe - target;
-  const [lo, hi] = rr.split('-').map(Number);
-  const drop   = state.settings.dropPct  / 100;
-  const inc    = state.settings.increasePct / 100;
+  const [lo, hi] = ex.repRange.split('-').map(Number);
+  const drop = S.settings.dropPct / 100;
+  const inc  = S.settings.incPct  / 100;
 
-  if (diff >= 2) {
-    const nw = roundW(setData.weight * (1 - drop));
-    return {type:'drop', title:'🔻 Too Heavy', msg:`RPE ${setData.rpe} vs target ${target}. Drop to ${nw}kg, reset to ${lo} reps.`, suggested:{weight:nw, reps:lo}};
+  if (diff >= 2)  { const nw=roundW(setData.weight*(1-drop)); return {type:'drop',title:'🔻 Too Heavy',   msg:`RPE ${setData.rpe} vs target ${target}. Drop to ${nw}kg, reset to ${lo} reps.`,  sugg:{weight:nw,reps:lo}}; }
+  if (diff >= 1)  return {type:'warn',title:'⚠️ Slightly Over', msg:`RPE ${setData.rpe} vs target ${target}. Try slowing eccentric +1s.`,                                                      sugg:null};
+  if (diff <= -2) { const nw=roundW(setData.weight*(1+inc));  return {type:'up',  title:'⬆️ Too Easy',    msg:`RPE ${setData.rpe} vs target ${target}. Increase to ${nw}kg next set.`,           sugg:{weight:nw,reps:setData.reps}}; }
+  if (diff <= -1) return {type:'up',  title:'➕ Room to Grow', msg:`RPE ${setData.rpe} vs target ${target}. Add 1 rep next set.`,                                                              sugg:null};
+  if (setData.reps >= hi && Math.abs(diff)<=0.5) {
+    const nw=roundW(setData.weight*(1+inc));
+    return {type:'good',title:'🏆 Progress!',  msg:`Hit top of rep range at target RPE. Next session: ${nw}kg.`, sugg:{weight:nw,reps:lo}};
   }
-  if (diff >= 1)   return {type:'warn', title:'⚠️ Slightly Over',  msg:`RPE ${setData.rpe} vs target ${target}. Try slowing eccentric +1s next set.`, suggested:null};
-  if (diff <= -2) {
-    const nw = roundW(setData.weight * (1 + inc));
-    return {type:'up',   title:'⬆️ Too Easy',   msg:`RPE ${setData.rpe} vs target ${target}. Increase to ${nw}kg next set.`, suggested:{weight:nw, reps:setData.reps}};
-  }
-  if (diff <= -1)  return {type:'up',   title:'➕ Room to Grow',   msg:`RPE ${setData.rpe} vs target ${target}. Add 1 rep next set.`, suggested:null};
-  if (setData.reps >= hi && Math.abs(diff) <= 0.5) {
-    const nw = roundW(setData.weight * (1 + inc));
-    return {type:'good', title:'🏆 Progress!',   msg:`Hit top of rep range at target RPE. Next session: ${nw}kg.`, suggested:{weight:nw, reps:lo}};
-  }
-  return {type:'good', title:'✅ On Target', msg:`RPE ${setData.rpe} matches target ${target}. Keep weight.`, suggested:null};
+  return {type:'good',title:'✅ On Target', msg:`RPE ${setData.rpe} matches target ${target}. Keep this weight.`, sugg:null};
 }
 
-function getNextSuggestion(ex) {
-  const rr   = getExRepRange(ex);
-  const [lo] = rr.split('-').map(Number);
+function nextSuggestion(ex) {
+  const [lo] = ex.repRange.split('-').map(Number);
 
-  // Find most recent session sets for this exercise
-  for (const session of [...state.sessions].reverse()) {
-    const se = session.exercises.find(e => e.exerciseId === ex.id);
+  // Look for last session that included this exact exercise id
+  for (const s of [...S.sessions].reverse()) {
+    const se = s.exercises.find(e => e.exerciseId === ex.id);
     if (se && se.sets.length) {
-      const last = se.sets[se.sets.length - 1];
-      // If session was for same week/rep-range context, apply overload
-      const fb = overloadFeedback(ex, last);
-      if (fb.suggested) return {...fb.suggested, estimated:false};
-      return {weight:last.weight, reps:last.reps, estimated:false};
+      const last = se.sets[se.sets.length-1];
+      const fb = feedback(ex, last);
+      if (fb.sugg) return {...fb.sugg, est:false};
+      return {weight:last.weight, reps:last.reps, est:false};
     }
   }
 
-  // No history — use 1RM to estimate
-  const oneRM = getBest1RM(ex.id);
+  // No history for this exact exercise — estimate from 1RM
+  const oneRM = best1RM(ex.id);
   if (oneRM > 0) {
-    const estW = weightFor1RM(oneRM, rr);
-    if (estW) return {weight:estW, reps:lo, estimated:true, oneRM};
+    const w = weightFrom1RM(oneRM, ex.repRange);
+    if (w) return {weight:w, reps:lo, est:true, oneRM};
   }
 
-  return {weight: ex.baseWeight || 20, reps:lo, estimated:false};
+  return {weight: ex.baseWeight||20, reps:lo, est:false};
 }
 
-// ═══════════════════════════════════
+// ════════════════════════════════════════
 // MODALS
-// ═══════════════════════════════════
-function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow='hidden'; }
+// ════════════════════════════════════════
+function openModal(id)  { document.getElementById(id).classList.add('open');    document.body.style.overflow='hidden'; }
 function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow=''; }
-document.querySelectorAll('.modal-overlay').forEach(el => el.addEventListener('click', e => { if (e.target===el) closeModal(el.id); }));
+document.querySelectorAll('.modal-overlay').forEach(el => el.addEventListener('click', e => { if(e.target===el) closeModal(el.id); }));
 
-// ═══════════════════════════════════
+// ════════════════════════════════════════
 // NAV
-// ═══════════════════════════════════
+// ════════════════════════════════════════
 function showPage(name) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById('page-'+name).classList.add('active');
   document.getElementById('nav-'+name).classList.add('active');
-  if (name==='today')   renderToday();
-  if (name==='plan')    renderPlan();
-  if (name==='history') renderHistory();
-  if (name==='volume')  renderVolume();
+  ({today:renderToday, plan:renderPlan, history:renderHistory, volume:renderVolume})[name]?.();
 }
 
-function updateWeekBadge() {
+function updateBadge() {
   const el = document.getElementById('week-badge-wrap');
-  if (!isBlock()) { el.innerHTML = ''; return; }
+  if (!isBlock()) { el.innerHTML=''; return; }
   el.innerHTML = `<div class="week-badge" onclick="openAdvanceModal()">W${curWeek()}/${blockLen()}</div>`;
 }
 
-// ═══════════════════════════════════
-// TODAY PAGE
-// ═══════════════════════════════════
-function getTodayDay() {
-  return ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][new Date().getDay()];
-}
-
-function weekProgressionChips(ex) {
-  if (!isBlock() || !ex.weeks) return '';
-  const wk = curWeek(), bl = blockLen();
-  return '<div style="display:flex;gap:4px;margin-top:5px;flex-wrap:wrap">' +
-    ex.weeks.slice(0, bl).map((w, i) => {
-      const n = i+1;
-      const s = n===wk ? 'background:var(--accent-dim);border-color:var(--accent);color:var(--accent)' :
-                n <wk  ? 'background:var(--green-dim);border-color:var(--green-dim);color:var(--green)' :
-                         'background:transparent;border-color:var(--border);color:var(--text-faint)';
-      return `<span style="font-family:var(--cond);font-size:9px;letter-spacing:1px;padding:2px 5px;border:1px solid;border-radius:2px;${s}">${w.repRange}</span>`;
-    }).join('') + '</div>';
-}
+// ════════════════════════════════════════
+// TODAY
+// ════════════════════════════════════════
+function todayName() { return ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][new Date().getDay()]; }
 
 function renderToday() {
-  const today = getTodayDay();
-  const exercises = state.plan[today] || [];
-  const el = document.getElementById('today-content');
-  const sessionToday = (state.currentSession && state.currentSession.day===today) ? state.currentSession : null;
-  let html = '';
+  const day  = todayName();
+  const exs  = todayExercises(day);
+  const ses  = S.session?.day === day ? S.session : null;
+  const el   = document.getElementById('today-content');
 
-  if (isBlock() && state.program.showCycleReset) {
-    html += `<div class="cycle-banner">
-      <div class="cycle-banner-title">⚡ Block Complete!</div>
-      <div class="cycle-banner-body">You've finished a full ${blockLen()}-week block (Cycle ${state.program.cycleCount}). New starting weights have been estimated for Cycle ${state.program.cycleCount+1} using your improved 1RM. Check Plan to review them.</div>
-      <button class="btn btn-primary btn-sm" onclick="startNewCycle()">Start Cycle ${state.program.cycleCount+1}</button>
-    </div>`;
-  }
+  const wTag = isBlock() ? ` <span class="tag tag-orange" style="font-size:9px;vertical-align:middle">WEEK ${curWeek()}</span>` : '';
+  let html = `<div class="section-header">${day}${wTag}</div>`;
 
-  const weekTag = isBlock() ? ` <span class="tag tag-orange" style="font-size:9px;vertical-align:middle">WEEK ${curWeek()}</span>` : '';
-
-  if (!exercises.length) {
-    html += `<div class="section-header">${today}${weekTag}</div>
-      <div class="section-sub">Rest day</div>
-      <div class="card"><div class="empty-state">
-        <div class="empty-icon">🛌</div>
+  if (!exs.length) {
+    html += `<div class="section-sub">Rest day — no exercises scheduled</div>
+      <div class="card"><div class="empty"><div class="empty-icon">🛌</div>
         <div class="empty-text">Rest & Recover</div>
-        <div class="empty-sub">No workout today. Add exercises in Plan.</div>
+        <div class="empty-sub">Add exercises for ${day}${isBlock()?` Week ${curWeek()}`:''} in Plan.</div>
       </div></div>`;
     el.innerHTML = html; return;
   }
 
-  html += `<div class="section-header">${today}${weekTag}</div>`;
-
-  if (!sessionToday) {
-    html += `<div class="card"><div class="flex-between">
+  if (!ses) {
+    // Pre-workout preview
+    html += `<div class="card"><div class="flex-bet">
       <div>
         <div style="font-family:var(--cond);font-weight:700;font-size:16px;letter-spacing:1px">Ready to train?</div>
-        <div style="color:var(--text-dim);font-size:13px;margin-top:4px">${exercises.map(e=>e.name).join(' · ')}</div>
+        <div style="color:var(--text-dim);font-size:13px;margin-top:4px">${exs.map(e=>e.name).join(' · ')}</div>
       </div>
-      <button class="btn btn-primary" onclick="startWorkout('${today}')">Start</button>
-    </div></div>`;
+      <button class="btn btn-primary" onclick="startWorkout('${day}')">Start</button>
+    </div></div>
+    <div class="card"><div class="card-title"><div class="dot"></div>Today's Plan</div>`;
 
-    html += `<div class="card"><div class="card-title"><div class="accent-dot"></div>Today's Plan</div>`;
-    for (const ex of exercises) {
-      const rr = getExRepRange(ex);
-      const sg = getNextSuggestion(ex);
-      const pr = getBest1RM(ex.id);
-      html += `<div class="exercise-item" style="cursor:default">
+    for (const ex of exs) {
+      const sg  = nextSuggestion(ex);
+      const pr  = best1RM(ex.id);
+      html += `<div class="ex-item" style="cursor:default">
         <div style="flex:1">
-          <div class="exercise-name">${ex.name}</div>
-          <div class="exercise-meta">${ex.sets} sets · ${rr} reps · <span class="text-accent">${sg.weight}kg${sg.estimated?' <span style="font-size:10px;color:var(--text-faint)">(est.)</span>':''}</span></div>
-          ${weekProgressionChips(ex)}
-          ${pr > 0 ? `<div style="margin-top:5px"><span class="pr-badge">🏆 1RM~${pr}kg</span></div>` : ''}
+          <div class="ex-name">${ex.name}</div>
+          <div class="ex-meta">${ex.sets} sets · ${ex.repRange} reps · <span class="text-acc">${sg.weight}kg${sg.est?' <span style="color:var(--text-faint);font-size:10px">(est.)</span>':''}</span></div>
+          ${pr>0?`<div style="margin-top:5px"><span class="pr-badge">🏆 1RM~${pr}kg</span></div>`:''}
         </div>
         <div class="tag tag-gray">${ex.muscle}</div>
       </div>`;
@@ -601,427 +550,436 @@ function renderToday() {
     html += `</div>`;
   } else {
     // Active workout
-    html += `<div id="feedback-area"></div>`;
-    for (const ex of exercises) {
-      const se = sessionToday.exercises.find(e => e.exerciseId===ex.id);
+    html += `<div id="fb-area"></div>`;
+    for (const ex of exs) {
+      const se     = ses.exercises.find(e=>e.exerciseId===ex.id);
       const logged = se ? se.sets : [];
-      const rr = getExRepRange(ex);
-      const [lo] = rr.split('-').map(Number);
+      const [lo]   = ex.repRange.split('-').map(Number);
       let sg;
-      if (logged.length > 0) {
-        const fb = overloadFeedback(ex, logged[logged.length-1]);
-        sg = fb.suggested || {weight:logged[logged.length-1].weight, reps:logged[logged.length-1].reps};
-      } else { sg = getNextSuggestion(ex); }
+      if (logged.length) {
+        const fb = feedback(ex, logged[logged.length-1]);
+        sg = fb.sugg || {weight:logged[logged.length-1].weight, reps:logged[logged.length-1].reps};
+      } else { sg = nextSuggestion(ex); }
 
-      html += `<div class="card" id="ex-card-${ex.id}">
-        <div class="flex-between mb-8">
+      html += `<div class="card">
+        <div class="flex-bet mb8">
           <div>
             <div style="font-family:var(--cond);font-weight:900;font-size:18px;letter-spacing:1px;text-transform:uppercase">${ex.name}</div>
-            <div class="exercise-meta">${ex.sets} sets · ${rr} reps · <span class="text-accent">Target ${sg.weight}kg × ${sg.reps||lo}${sg.estimated?' <span style="font-size:10px;color:var(--text-faint)">(est.)</span>':''}</span></div>
+            <div class="ex-meta">${ex.sets} sets · ${ex.repRange} reps · <span class="text-acc">Target ${sg.weight}kg × ${sg.reps||lo}${sg.est?' <span style="color:var(--text-faint);font-size:10px">(est.)</span>':''}</span></div>
           </div>
           <div class="tag tag-gray">${ex.muscle}</div>
         </div>
         <div id="sets-${ex.id}">`;
 
-      logged.forEach((s, i) => {
-        const est = calcEpley(s.weight, s.reps);
-        const pr  = getBest1RM(ex.id);
-        const isPR = est>0 && est>=pr;
+      logged.forEach((s,i) => {
+        const est = epley(s.weight, s.reps);
+        const pr  = best1RM(ex.id);
         html += `<div class="set-row">
           <div class="set-num">${i+1}</div>
           <div class="set-data">
-            <span class="set-chip">${s.weight}kg</span>
-            <span class="set-chip">${s.reps} reps</span>
-            <span class="set-rpe-chip ${getRPEClass(s.rpe)}">RPE ${s.rpe}</span>
-            ${s.tempo&&s.tempo!=='0-0-0-0'?`<span class="set-chip">${s.tempo}</span>`:''}
-            ${isPR?`<span class="set-chip pr pop">🏆 PR</span>`:''}
-            <span class="set-chip" style="color:var(--text-faint);font-size:11px">1RM~${est}kg</span>
+            <span class="chip">${s.weight}kg</span>
+            <span class="chip">${s.reps} reps</span>
+            <span class="rpe-chip ${rpeClass(s.rpe)}">RPE ${s.rpe}</span>
+            ${s.tempo&&s.tempo!=='0-0-0-0'?`<span class="chip">${s.tempo}</span>`:''}
+            ${est>=pr&&est>0?`<span class="chip pr pop">🏆 PR</span>`:''}
+            <span class="chip" style="color:var(--text-faint);font-size:11px">1RM~${est}kg</span>
           </div>
         </div>`;
       });
-
       html += `</div>`;
-      const setsLeft = ex.sets - logged.length;
-      if (setsLeft > 0) {
-        html += `<button class="btn btn-primary btn-full mt-8" onclick="openLogSet('${ex.id}','${today}')">+ Log Set ${logged.length+1} / ${ex.sets}</button>`;
+
+      if (ex.sets - logged.length > 0) {
+        html += `<button class="btn btn-primary btn-full mt8" onclick="openLogSet('${ex.id}','${day}')">+ Log Set ${logged.length+1} / ${ex.sets}</button>`;
       } else {
-        html += `<div class="tag tag-green mt-8 pop" style="display:inline-block">✓ Complete</div>`;
+        html += `<div class="tag tag-green mt8 pop" style="display:inline-block">✓ Complete</div>`;
       }
       html += `</div>`;
     }
-
     html += `<div class="card"><button class="btn btn-ghost btn-full" onclick="finishWorkout()">Finish Workout</button></div>`;
   }
 
   el.innerHTML = html;
 }
 
-// ═══════════════════════════════════
+// ════════════════════════════════════════
 // WORKOUT
-// ═══════════════════════════════════
+// ════════════════════════════════════════
 function startWorkout(day) {
-  state.currentSession = {
+  const exs = todayExercises(day);
+  S.session = {
     date: new Date().toISOString().split('T')[0], day, week:curWeek(),
-    exercises: (state.plan[day]||[]).map(ex => ({exerciseId:ex.id, name:ex.name, sets:[]}))
+    exercises: exs.map(ex => ({exerciseId:ex.id, name:ex.name, sets:[]}))
   };
-  state.workoutStartTime = Date.now();
-  document.getElementById('workout-timer').style.display = 'block';
-  state.workoutTimerInterval = setInterval(() => {
-    const e = Math.floor((Date.now()-state.workoutStartTime)/1000);
-    document.getElementById('workout-timer').textContent =
-      `${Math.floor(e/60).toString().padStart(2,'0')}:${(e%60).toString().padStart(2,'0')}`;
+  S.wkStart = Date.now();
+  const tw = document.getElementById('wk-timer');
+  tw.style.display = 'block';
+  S.wkTimerInterval = setInterval(() => {
+    const e = Math.floor((Date.now()-S.wkStart)/1000);
+    tw.textContent = `${Math.floor(e/60).toString().padStart(2,'0')}:${(e%60).toString().padStart(2,'0')}`;
   }, 1000);
   renderToday();
 }
 
 function finishWorkout() {
-  if (!state.currentSession) return;
-  state.sessions.push({...state.currentSession});
-  state.currentSession = null;
-  clearInterval(state.workoutTimerInterval);
-  document.getElementById('workout-timer').style.display = 'none';
-  saveState(); renderToday();
+  if (!S.session) return;
+  S.sessions.push({...S.session});
+  S.session = null;
+  clearInterval(S.wkTimerInterval);
+  document.getElementById('wk-timer').style.display = 'none';
+  save(); renderToday();
 }
 
-// ═══════════════════════════════════
+// ════════════════════════════════════════
 // LOG SET
-// ═══════════════════════════════════
+// ════════════════════════════════════════
 let logCtx = null;
 
 function openLogSet(exId, day) {
-  const ex = (state.plan[day]||[]).find(e => e.id===exId);
+  const exs = todayExercises(day);
+  const ex  = exs.find(e=>e.id===exId);
   if (!ex) return;
-  const se = state.currentSession.exercises.find(e => e.exerciseId===exId);
+  const se   = S.session.exercises.find(e=>e.exerciseId===exId);
   const prev = se ? se.sets : [];
-  const setNum = prev.length + 1;
-  const rr = getExRepRange(ex);
-  const [lo] = rr.split('-').map(Number);
-  const tRPE = getExTargetRPE(ex);
+  const sNum = prev.length + 1;
+  const [lo] = ex.repRange.split('-').map(Number);
+  const tRPE = RPE_TARGETS[ex.repRange] || 7.5;
 
   let sg;
-  if (prev.length > 0) {
-    const fb = overloadFeedback(ex, prev[prev.length-1]);
-    sg = fb.suggested || {weight:prev[prev.length-1].weight, reps:prev[prev.length-1].reps};
-  } else { sg = getNextSuggestion(ex); }
+  if (prev.length) {
+    const fb = feedback(ex, prev[prev.length-1]);
+    sg = fb.sugg || {weight:prev[prev.length-1].weight, reps:prev[prev.length-1].reps};
+  } else { sg = nextSuggestion(ex); }
 
-  logCtx = {exId, day, setNum, ex};
-  document.getElementById('log-modal-title').textContent = `${ex.name} — Set ${setNum}`;
-  const oneRM = getBest1RM(exId);
-  const estNote = sg.estimated && oneRM > 0
+  logCtx = {exId, day, ex};
+  document.getElementById('log-title').textContent = `${ex.name} — Set ${sNum}`;
+  const oneRM = best1RM(exId);
+  const estNote = sg.est && oneRM>0
     ? `<div style="font-size:11px;color:var(--text-faint);margin-top:2px;font-family:var(--cond);letter-spacing:1px">From 1RM ${oneRM}kg · ${Math.round(sg.weight/oneRM*100)}% of max</div>` : '';
 
-  document.getElementById('log-modal-body').innerHTML = `
+  document.getElementById('log-body').innerHTML = `
     <div style="background:var(--bg2);border:1px solid var(--border);border-radius:2px;padding:10px 12px;margin-bottom:16px">
       <div style="font-family:var(--cond);font-size:10px;letter-spacing:2px;color:var(--text-dim);margin-bottom:4px;text-transform:uppercase">Target This Set</div>
       <div style="font-family:var(--mono);font-size:22px;color:var(--accent)">${sg.weight}kg × ${sg.reps||lo}</div>
-      <div style="font-size:12px;color:var(--text-dim);margin-top:2px">Target RPE: ${tRPE} · Range: ${rr}${isBlock()?` · Week ${curWeek()}`:''}</div>
+      <div style="font-size:12px;color:var(--text-dim);margin-top:2px">Target RPE: ${tRPE} · ${ex.repRange} reps${isBlock()?` · Week ${curWeek()}`:''}</div>
       ${estNote}
     </div>
     <div style="display:flex;gap:8px">
-      <div class="input-group" style="flex:1"><label class="input-label">Weight (kg)</label><input type="number" id="log-weight" value="${sg.weight}" step="0.5" min="0"></div>
-      <div class="input-group" style="flex:1"><label class="input-label">Reps</label><input type="number" id="log-reps" value="${sg.reps||lo}" min="1" max="50"></div>
+      <div class="input-group" style="flex:1"><label class="input-label">Weight (kg)</label><input type="number" id="lw" value="${sg.weight}" step="0.5" min="0"></div>
+      <div class="input-group" style="flex:1"><label class="input-label">Reps</label><input type="number" id="lr" value="${sg.reps||lo}" min="1" max="50"></div>
     </div>
     <div class="input-group">
-      <label class="input-label">RPE / Difficulty — <span id="rpe-display" class="text-accent">${tRPE}</span> / 10</label>
-      <input type="range" id="log-rpe" min="1" max="10" step="0.5" value="${tRPE}" oninput="document.getElementById('rpe-display').textContent=this.value">
+      <label class="input-label">RPE / Difficulty — <span id="rpe-val" class="text-acc">${tRPE}</span> / 10</label>
+      <input type="range" id="lrpe" min="1" max="10" step="0.5" value="${tRPE}" oninput="document.getElementById('rpe-val').textContent=this.value">
     </div>
     <div class="input-group">
       <label class="input-label">Tempo (ecc – bot – con – top)</label>
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px">
         ${['Ecc','Bot','Con','Top'].map((l,i)=>`<div>
-          <div style="font-family:var(--cond);font-size:9px;color:var(--text-faint);text-align:center;margin-bottom:3px;letter-spacing:1px;text-transform:uppercase">${l}</div>
+          <div style="font-family:var(--cond);font-size:9px;color:var(--text-faint);text-align:center;margin-bottom:3px;text-transform:uppercase;letter-spacing:1px">${l}</div>
           <input type="number" id="t${i+1}" value="${i===0?3:i===2?1:0}" min="0" max="10" style="text-align:center;padding:8px 4px">
         </div>`).join('')}
       </div>
     </div>
-    <div class="input-group"><label class="input-label">Notes (optional)</label><textarea id="log-notes" placeholder="Form cues, how it felt..."></textarea></div>
+    <div class="input-group"><label class="input-label">Notes (optional)</label><textarea id="ln" placeholder="Form cues, how it felt..."></textarea></div>
     <div style="display:flex;gap:8px;margin-top:8px">
-      <button class="btn btn-ghost" style="flex:1" onclick="closeModal('log-set-modal')">Cancel</button>
+      <button class="btn btn-ghost" style="flex:1" onclick="closeModal('log-modal')">Cancel</button>
       <button class="btn btn-primary" style="flex:1" onclick="saveSet()">Log Set</button>
     </div>`;
-  openModal('log-set-modal');
+  openModal('log-modal');
 }
 
 function saveSet() {
   if (!logCtx) return;
-  const weight = parseFloat(document.getElementById('log-weight').value)||0;
-  const reps   = parseInt(document.getElementById('log-reps').value)||0;
-  const rpe    = parseFloat(document.getElementById('log-rpe').value)||7;
+  const weight = parseFloat(document.getElementById('lw').value)||0;
+  const reps   = parseInt(document.getElementById('lr').value)||0;
+  const rpe    = parseFloat(document.getElementById('lrpe').value)||7;
   const tempo  = `${document.getElementById('t1').value}-${document.getElementById('t2').value}-${document.getElementById('t3').value}-${document.getElementById('t4').value}`;
-  const notes  = document.getElementById('log-notes').value;
-  const est1rm = calcEpley(weight, reps);
+  const notes  = document.getElementById('ln').value;
 
-  const se = state.currentSession.exercises.find(e => e.exerciseId===logCtx.exId);
-  if (se) se.sets.push({weight, reps, rpe, tempo, notes, est1rm});
+  const se = S.session.exercises.find(e=>e.exerciseId===logCtx.exId);
+  if (se) se.sets.push({weight,reps,rpe,tempo,notes,est1rm:epley(weight,reps)});
 
-  closeModal('log-set-modal');
+  closeModal('log-modal');
 
-  const fb = overloadFeedback(logCtx.ex, {weight, reps, rpe});
-  const fEl = document.getElementById('feedback-area');
-  if (fEl) {
-    fEl.innerHTML = `<div class="feedback-banner show ${fb.type}" style="margin-top:12px">
-      <div class="feedback-title">${fb.title}</div>
-      <div class="feedback-body">${fb.msg}</div>
+  const fb = feedback(logCtx.ex, {weight,reps,rpe});
+  const fbEl = document.getElementById('fb-area');
+  if (fbEl) {
+    fbEl.innerHTML = `<div class="fb-banner show ${fb.type}">
+      <div class="fb-title">${fb.title}</div>
+      <div class="fb-body">${fb.msg}</div>
     </div>`;
-    setTimeout(() => { const b = fEl.querySelector('.feedback-banner'); if(b) b.style.opacity='0.4'; }, 6000);
+    setTimeout(()=>{ const b=fbEl.querySelector('.fb-banner'); if(b) b.style.opacity='.4'; }, 6000);
   }
 
-  const rc = getRestConf(getExRepRange(logCtx.ex));
-  startRestTimer(rc.seconds, rc.label, rc.reason);
+  const rc = getRestConf(logCtx.ex.repRange);
+  startRest(rc.secs, rc.label, rc.reason);
   renderToday();
-  setTimeout(() => document.getElementById('feedback-area')?.scrollIntoView({behavior:'smooth',block:'start'}), 100);
+  setTimeout(()=>document.getElementById('fb-area')?.scrollIntoView({behavior:'smooth',block:'start'}), 100);
 }
 
-// ═══════════════════════════════════
+// ════════════════════════════════════════
 // REST TIMER
-// ═══════════════════════════════════
-const fmtT = s => `${Math.floor(s/60)}:${(s%60).toString().padStart(2,'0')}`;
-
-function startRestTimer(seconds, label, reason) {
-  stopRestTimer();
-  let rem = seconds;
-  const el    = document.getElementById('rest-timer');
-  const count = document.getElementById('rest-timer-count');
-  const fill  = document.getElementById('rest-timer-fill');
-  document.getElementById('rest-timer-label').textContent = label ? `Rest · ${label}` : 'Rest Timer';
-  document.getElementById('rest-timer-reason').textContent = reason || '';
-  el.classList.add('show');
-  count.textContent = fmtT(rem);
-  fill.style.width  = '100%';
-  state.restTimerInterval = setInterval(() => {
-    rem--; count.textContent = fmtT(rem);
-    fill.style.width = (rem/seconds*100)+'%';
-    if (rem <= 0) stopRestTimer();
+// ════════════════════════════════════════
+function startRest(secs, label, reason) {
+  stopRest();
+  let rem = secs;
+  document.getElementById('rest-lbl').textContent  = label ? `Rest · ${label}` : 'Rest';
+  document.getElementById('rest-rsn').textContent  = reason || '';
+  document.getElementById('rest-count').textContent = fmtT(rem);
+  document.getElementById('rest-fill').style.width  = '100%';
+  document.getElementById('rest-timer').classList.add('show');
+  S.restInterval = setInterval(()=>{
+    rem--;
+    document.getElementById('rest-count').textContent = fmtT(rem);
+    document.getElementById('rest-fill').style.width  = (rem/secs*100)+'%';
+    if (rem<=0) stopRest();
   }, 1000);
 }
 
-function stopRestTimer() {
-  clearInterval(state.restTimerInterval);
+function stopRest() {
+  clearInterval(S.restInterval);
   document.getElementById('rest-timer').classList.remove('show');
 }
 
-// ═══════════════════════════════════
+// ════════════════════════════════════════
 // PLAN PAGE
-// ═══════════════════════════════════
+// ════════════════════════════════════════
+// Plan structure: S.plan[day][week] = [exercises]
+// Weekly mode:   S.plan[day][1]    = [exercises]  (always week 1)
+// Block mode:    S.plan[day][1..N] = [exercises per week]
+
 function renderPlan() {
   const el = document.getElementById('plan-content');
+  const bl = blockLen(), wk = S.planWeek || 1;
+
   let html = `<div class="section-header">Training Plan</div>`;
 
   if (isBlock()) {
-    const wk = curWeek(), bl = blockLen();
-    let tabs = '<div style="padding:8px 12px 0"><div class="week-tabs">';
+    // Week selector row
+    html += `<div style="padding:8px 12px 0">
+      <div style="font-family:var(--cond);font-size:10px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase;margin-bottom:6px">Editing Week</div>
+      <div class="pills" id="plan-wpills">`;
     for (let w=1; w<=bl; w++) {
-      const cls = w===wk?'current':w<wk?'done':'';
-      tabs += `<div class="week-tab ${cls}">W${w}${w===wk?'<br><span style="font-size:8px;letter-spacing:0">NOW</span>':''}</div>`;
+      const isCur = w === curWeek();
+      const hasDat = DAYS.some(d => ((S.plan[d]||{})[w]||[]).length > 0);
+      html += `<div class="wpill ${w===wk?'active':''} ${isCur?'current-wk':''} ${hasDat?'has-data':''}" onclick="setPlanWeek(${w})">
+        W${w}${isCur?' ⚡':''}
+      </div>`;
     }
-    tabs += `</div><div style="font-size:12px;color:var(--text-dim);font-family:var(--cond);letter-spacing:1px;padding-bottom:4px">
-      Week ${wk} of ${bl} · <span style="color:var(--accent);cursor:pointer" onclick="openAdvanceModal()">Advance week →</span>
-    </div></div>`;
-    html += tabs;
+    html += `</div>
+      <div style="font-size:12px;color:var(--text-dim);font-family:var(--cond);letter-spacing:1px;margin-top:4px;padding-bottom:4px">
+        Currently training: <span style="color:var(--accent)">Week ${curWeek()}</span> · 
+        <span style="color:var(--accent);cursor:pointer" onclick="openAdvanceModal()">Advance week →</span>
+      </div>
+    </div>`;
   }
 
-  html += `<div class="card"><div class="card-title"><div class="accent-dot"></div>Select Day</div>
-    <div class="day-pills" id="plan-day-pills"></div>
+  html += `<div class="card">
+    <div class="card-title"><div class="dot"></div>Select Day${isBlock()?` — Week ${wk}`:''}</div>
+    <div class="pills" id="plan-dpills"></div>
     <div id="plan-day-content"></div>
   </div>`;
 
   el.innerHTML = html;
 
-  document.getElementById('plan-day-pills').innerHTML = DAYS.map(d => {
-    const has = (state.plan[d]||[]).length > 0;
-    const act = state.activePlanDay === d;
-    return `<div class="day-pill ${act?'active':''} ${has?'has-workout':''}" onclick="setPlanDay('${d}')">${d.slice(0,3)}</div>`;
+  // Day pills
+  document.getElementById('plan-dpills').innerHTML = DAYS.map(d => {
+    const w = isBlock() ? wk : 1;
+    const has = ((S.plan[d]||{})[w]||[]).length > 0;
+    const act = S.planDay === d;
+    return `<div class="pill ${act?'active':''} ${has?'has-data':''}" onclick="setPlanDay('${d}')">${d.slice(0,3)}</div>`;
   }).join('');
 
-  renderPlanDay();
+  renderPlanDayContent();
 }
 
-function setPlanDay(day) { state.activePlanDay = day; renderPlan(); }
+function setPlanDay(day)  { S.planDay  = day;  renderPlan(); }
+function setPlanWeek(wk)  { S.planWeek = wk;   renderPlan(); }
 
-function renderPlanDay() {
-  const day = state.activePlanDay;
-  const exercises = state.plan[day] || [];
-  const el = document.getElementById('plan-day-content');
-  let html = '';
+function renderPlanDayContent() {
+  const day = S.planDay;
+  const wk  = isBlock() ? (S.planWeek||1) : 1;
+  const exs = ((S.plan[day]||{})[wk]) || [];
+  const el  = document.getElementById('plan-day-content');
+  let html  = '';
 
-  if (!exercises.length) {
-    html = `<div class="empty-state" style="padding:20px 0"><div class="empty-text">Rest Day</div></div>`;
+  if (!exs.length) {
+    html = `<div class="empty" style="padding:18px 0">
+      <div class="empty-text">No exercises${isBlock()?` for Week ${wk}`:''}</div>
+    </div>`;
   } else {
-    exercises.forEach((ex, i) => {
-      const repDisplay = isBlock() && ex.weeks
-        ? ex.weeks.slice(0,blockLen()).map((w,wi)=>`W${wi+1}: ${w.repRange}`).join(' → ')
-        : ex.repRange;
-      html += `<div class="exercise-item" style="cursor:default">
+    exs.forEach((ex, i) => {
+      html += `<div class="ex-item">
         <div style="flex:1">
-          <div class="exercise-name">${ex.name}</div>
-          <div class="exercise-meta">${ex.sets} sets · <span class="text-accent">${ex.muscle}</span></div>
-          <div style="font-family:var(--cond);font-size:10px;color:var(--text-dim);margin-top:3px;letter-spacing:1px">${repDisplay}</div>
-          ${weekProgressionChips(ex)}
+          <div class="ex-name">${ex.name}</div>
+          <div class="ex-meta">${ex.sets} sets · ${ex.repRange} reps · ${ex.baseWeight}kg base · <span class="text-acc">${ex.muscle}</span></div>
         </div>
-        <button class="btn-icon" onclick="removeExercise('${day}',${i})" style="color:var(--red);flex-shrink:0">
+        <button class="btn-icon" onclick="removeExercise('${day}',${wk},${i})" style="color:var(--red)">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>
         </button>
       </div>`;
     });
   }
-  html += `<button class="btn btn-ghost btn-full mt-8" onclick="openAddExercise()">+ Add Exercise</button>`;
+  html += `<button class="btn btn-ghost btn-full mt8" onclick="openAddEx()">+ Add Exercise</button>`;
   el.innerHTML = html;
 }
 
-function openAddExercise() {
-  document.getElementById('ex-name-input').value = '';
-  document.getElementById('ex-weight-input').value = '';
-  const bk = isBlock();
-  document.getElementById('ex-block-fields').style.display  = bk ? 'block' : 'none';
-  document.getElementById('ex-weekly-fields').style.display = bk ? 'none'  : 'block';
-  if (bk) buildBlockRows();
-  openModal('add-exercise-modal');
-}
-
-function buildBlockRows() {
-  const bl = blockLen(), wk = curWeek();
-  const defaults = ['12-15','8-12','4-6','1-3','12-15','8-12'].slice(0, bl);
-  const opts = Object.keys(REP_LABELS).map(r=>`<option value="${r}">${REP_LABELS[r]}</option>`).join('');
-  document.getElementById('block-week-rows').innerHTML = Array.from({length:bl},(_,i)=>{
-    const w = i+1, isCur = w===wk, def = defaults[i]||'8-12';
-    return `<div class="block-week-row ${isCur?'current-w':''}">
-      <div class="block-week-num">W${w}${isCur?'<br><span style="font-size:8px;color:var(--accent)">NOW</span>':''}</div>
-      <select id="bw-${w}" style="flex:1">${opts.replace(`value="${def}"`,`value="${def}" selected`)}</select>
-    </div>`;
-  }).join('');
+function openAddEx() {
+  document.getElementById('ex-name').value   = '';
+  document.getElementById('ex-weight').value = '';
+  const wk = isBlock() ? (S.planWeek||1) : 1;
+  document.getElementById('add-ex-title').textContent = isBlock()
+    ? `Add Exercise — Week ${wk}, ${S.planDay}` : `Add Exercise — ${S.planDay}`;
+  openModal('add-ex-modal');
 }
 
 function saveExercise() {
-  const name = document.getElementById('ex-name-input').value.trim();
+  const name = document.getElementById('ex-name').value.trim();
   if (!name) { alert('Please enter a name'); return; }
-  const muscle = document.getElementById('ex-muscle-input').value;
-  const sets   = parseInt(document.getElementById('ex-sets-input').value)||4;
-  const baseW  = parseFloat(document.getElementById('ex-weight-input').value)||20;
-  const day    = state.activePlanDay;
-  if (!state.plan[day]) state.plan[day] = [];
+  const muscle  = document.getElementById('ex-muscle').value;
+  const sets    = parseInt(document.getElementById('ex-sets').value)||4;
+  const rr      = document.getElementById('ex-rr').value;
+  const baseW   = parseFloat(document.getElementById('ex-weight').value)||20;
+  const day     = S.planDay;
+  const wk      = isBlock() ? (S.planWeek||1) : 1;
 
-  if (isBlock()) {
-    const weeks = Array.from({length:blockLen()},(_,i)=>{
-      const rr = document.getElementById(`bw-${i+1}`).value;
-      return {repRange:rr, targetRPE:RPE_TARGETS[rr]||7.5};
-    });
-    state.plan[day].push({id:Date.now().toString(), name, muscle, sets, baseWeight:baseW, weeks});
-  } else {
-    const repRange = document.getElementById('ex-reprange-input').value;
-    state.plan[day].push({id:Date.now().toString(), name, muscle, sets, repRange, baseWeight:baseW});
-  }
-  saveState(); closeModal('add-exercise-modal'); renderPlan();
+  if (!S.plan[day]) S.plan[day] = {};
+  if (!S.plan[day][wk]) S.plan[day][wk] = [];
+
+  S.plan[day][wk].push({
+    id: Date.now().toString(), name, muscle, sets, repRange:rr, baseWeight:baseW
+  });
+  save(); closeModal('add-ex-modal'); renderPlan();
 }
 
-function removeExercise(day, i) {
-  state.plan[day].splice(i, 1); saveState(); renderPlan();
+function removeExercise(day, wk, idx) {
+  S.plan[day][wk].splice(idx, 1);
+  save(); renderPlan();
 }
 
-// ═══════════════════════════════════
-// WEEK ADVANCE & CYCLE RESET
-// ═══════════════════════════════════
+// ════════════════════════════════════════
+// WEEK ADVANCE & CYCLE
+// ════════════════════════════════════════
 function openAdvanceModal() {
   const wk = curWeek(), bl = blockLen(), isLast = wk >= bl;
-  document.getElementById('advance-modal-title').textContent = isLast ? '⚡ Complete Block' : `Advance to Week ${wk+1}`;
+  document.getElementById('advance-title').textContent = isLast ? '⚡ Complete Block' : `Advance to Week ${wk+1}`;
 
-  const allEx = {};
-  for (const d of DAYS) for (const ex of (state.plan[d]||[])) allEx[ex.id] = ex;
-
+  // Gather all exercises scheduled in next week (or W1 of new cycle)
+  const nextWk = isLast ? 1 : wk + 1;
   let html = '';
+
   if (isLast) {
     html += `<p style="font-size:14px;color:var(--text-dim);margin-bottom:16px;line-height:1.6">
-      You've completed <strong style="color:var(--text)">Week ${bl} of ${bl}</strong> — the full block (Cycle ${state.program.cycleCount}).
-      The app will calculate new Week 1 starting weights for Cycle ${state.program.cycleCount+1} using your improved 1RM.
+      You've completed <strong style="color:var(--text)">Week ${bl} of ${bl}</strong> — full block done (Cycle ${S.prog.cycleCount}).
+      Starting Cycle ${S.prog.cycleCount+1}: the app will use your 1RM estimates to suggest Week 1 starting weights.
     </p>`;
-    if (Object.keys(allEx).length) {
-      html += `<div style="font-family:var(--cond);font-size:10px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase;margin-bottom:8px">Cycle ${state.program.cycleCount+1} — Week 1 Weights</div>`;
-      for (const ex of Object.values(allEx)) {
-        const oneRM = getBest1RM(ex.id);
-        const firstRR = isBlock() && ex.weeks ? ex.weeks[0].repRange : (ex.repRange||'8-12');
-        const estW = oneRM>0 ? weightFor1RM(oneRM, firstRR) : null;
-        html += `<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)">
+
+    // Show Week 1 exercises with estimated weights for new cycle
+    html += `<div style="font-family:var(--cond);font-size:10px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase;margin-bottom:8px">Cycle ${S.prog.cycleCount+1} — Week 1 Preview</div>`;
+    for (const day of DAYS) {
+      const exs = ((S.plan[day]||{})[1]) || [];
+      if (!exs.length) continue;
+      html += `<div style="font-family:var(--cond);font-size:10px;color:var(--text-faint);letter-spacing:1px;margin:8px 0 4px;text-transform:uppercase">${day}</div>`;
+      for (const ex of exs) {
+        const oneRM = best1RM(ex.id);
+        const estW  = oneRM > 0 ? weightFrom1RM(oneRM, ex.repRange) : null;
+        html += `<div class="flex-bet" style="padding:6px 0;border-bottom:1px solid var(--border)">
           <div><div style="font-size:14px">${ex.name}</div>
-               <div style="font-family:var(--cond);font-size:11px;color:var(--text-dim)">${firstRR} (W1)</div></div>
+               <div class="ex-meta">${ex.repRange} reps</div></div>
           <div style="text-align:right">
-            <div style="font-family:var(--mono);font-size:16px;color:var(--accent)">${estW?estW+'kg':ex.baseWeight+'kg'}</div>
+            <div style="font-family:var(--mono);font-size:15px;color:var(--accent)">${estW?estW+'kg':ex.baseWeight+'kg'}</div>
             ${oneRM>0?`<div style="font-family:var(--cond);font-size:10px;color:var(--text-faint)">1RM~${oneRM}kg</div>`:''}
           </div>
         </div>`;
       }
     }
-    html += `<button class="btn btn-primary btn-full mt-16" onclick="startNewCycle();closeModal('advance-week-modal')">Start Cycle ${state.program.cycleCount+1}</button>`;
+    html += `<button class="btn btn-primary btn-full mt16" onclick="startNewCycle();closeModal('advance-modal')">Start Cycle ${S.prog.cycleCount+1}</button>`;
   } else {
     html += `<p style="font-size:14px;color:var(--text-dim);margin-bottom:16px;line-height:1.6">
-      Moving from <strong style="color:var(--text)">Week ${wk}</strong> to <strong style="color:var(--accent)">Week ${wk+1}</strong>. Rep ranges and rest times will update for all exercises.
+      Moving from <strong style="color:var(--text)">Week ${wk}</strong> to <strong style="color:var(--accent)">Week ${wk+1}</strong>. 
+      Each day will show the exercises you set up for Week ${wk+1}.
     </p>`;
-    if (isBlock() && Object.keys(allEx).length) {
-      html += `<div style="font-family:var(--cond);font-size:10px;letter-spacing:2px;color:var(--text-dim);text-transform:uppercase;margin-bottom:8px">Rep Range Changes</div>`;
-      for (const ex of Object.values(allEx)) {
-        if (!ex.weeks) continue;
-        const thisRR = ex.weeks[wk-1]?.repRange || '—';
-        const nextRR = ex.weeks[wk]?.repRange   || '—';
-        const oneRM  = getBest1RM(ex.id);
-        const nextW  = oneRM>0 ? weightFor1RM(oneRM, nextRR) : null;
-        html += `<div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border);align-items:center">
-          <div><div style="font-size:14px">${ex.name}</div>
-               <div style="font-family:var(--mono);font-size:12px">
-                 <span style="color:var(--text-faint)">${thisRR}</span>
-                 <span style="color:var(--text-dim)"> → </span>
-                 <span style="color:var(--accent)">${nextRR}</span>
-               </div></div>
-          <div style="text-align:right">
-            ${nextW?`<div style="font-family:var(--mono);font-size:15px;color:var(--accent)">~${nextW}kg</div>`:''}
-            ${oneRM>0?`<div style="font-family:var(--cond);font-size:10px;color:var(--text-faint)">from 1RM ${oneRM}kg</div>`:''}
-          </div>
-        </div>`;
+
+    // Preview week N+1 schedule
+    let anyNext = false;
+    for (const day of DAYS) {
+      const thisExs = ((S.plan[day]||{})[wk])    || [];
+      const nextExs = ((S.plan[day]||{})[wk+1])  || [];
+      if (!thisExs.length && !nextExs.length) continue;
+      anyNext = true;
+      html += `<div style="font-family:var(--cond);font-size:10px;color:var(--text-faint);letter-spacing:1px;margin:8px 0 4px;text-transform:uppercase">${day}</div>`;
+
+      if (!nextExs.length) {
+        html += `<div style="font-size:13px;color:var(--text-faint);padding:4px 0;border-bottom:1px solid var(--border)">Rest day (no exercises set for W${wk+1})</div>`;
+      } else {
+        for (const ex of nextExs) {
+          const oneRM = best1RM(ex.id);
+          const sg    = nextSuggestion(ex);
+          html += `<div class="flex-bet" style="padding:6px 0;border-bottom:1px solid var(--border)">
+            <div><div style="font-size:14px">${ex.name}</div>
+                 <div class="ex-meta">${ex.repRange} reps · ${ex.sets} sets</div></div>
+            <div style="text-align:right">
+              <div style="font-family:var(--mono);font-size:15px;color:var(--accent)">${sg.weight}kg${sg.est?' <span style="font-size:10px;color:var(--text-faint)">(est.)</span>':''}</div>
+              ${oneRM>0?`<div style="font-family:var(--cond);font-size:10px;color:var(--text-faint)">1RM~${oneRM}kg</div>`:''}
+            </div>
+          </div>`;
+        }
       }
     }
-    html += `<button class="btn btn-primary btn-full mt-16" onclick="advanceWeek();closeModal('advance-week-modal')">Advance to Week ${wk+1}</button>`;
+    if (!anyNext) html += `<div style="font-size:13px;color:var(--text-faint)">No exercises set up for Week ${wk+1} yet. Add them in Plan → Week ${wk+1}.</div>`;
+    html += `<button class="btn btn-primary btn-full mt16" onclick="advanceWeek();closeModal('advance-modal')">Advance to Week ${wk+1}</button>`;
   }
 
-  document.getElementById('advance-modal-body').innerHTML = html;
-  openModal('advance-week-modal');
+  document.getElementById('advance-body').innerHTML = html;
+  openModal('advance-modal');
 }
 
 function advanceWeek() {
-  state.program.currentWeek++;
-  saveState(); updateWeekBadge(); renderToday(); renderPlan();
+  S.prog.curWeek++;
+  S.planWeek = S.prog.curWeek;
+  save(); updateBadge(); renderToday(); renderPlan();
 }
 
 function startNewCycle() {
-  state.program.currentWeek  = 1;
-  state.program.cycleCount   = (state.program.cycleCount||1) + 1;
-  state.program.showCycleReset = false;
-  saveState(); updateWeekBadge(); renderToday(); renderPlan();
+  S.prog.curWeek    = 1;
+  S.planWeek        = 1;
+  S.prog.cycleCount = (S.prog.cycleCount||1) + 1;
+  save(); updateBadge(); renderToday(); renderPlan();
 }
 
-// ═══════════════════════════════════
-// HISTORY PAGE
-// ═══════════════════════════════════
+// ════════════════════════════════════════
+// HISTORY
+// ════════════════════════════════════════
 function renderHistory() {
   const el = document.getElementById('history-content');
+  // Gather all unique exercises across all weeks
   const allEx = {};
-  for (const d of DAYS) for (const ex of (state.plan[d]||[])) allEx[ex.id] = ex;
+  for (const day of DAYS)
+    for (const wk of Object.keys(S.plan[day]||{}))
+      for (const ex of (S.plan[day][wk]||[]))
+        allEx[ex.id] = ex;
+
   if (!Object.keys(allEx).length) {
-    el.innerHTML = `<div class="card"><div class="empty-state"><div class="empty-text">No exercises in plan yet</div></div></div>`;
+    el.innerHTML = `<div class="card"><div class="empty"><div class="empty-text">No exercises in plan yet</div></div></div>`;
     return;
   }
+
   let html = '';
   for (const [id, ex] of Object.entries(allEx)) {
     const hist = [];
-    for (const s of state.sessions)
+    for (const s of S.sessions)
       for (const se of s.exercises)
         if (se.exerciseId===id && se.sets.length)
-          hist.push({date:s.date, best:Math.max(...se.sets.map(st=>calcEpley(st.weight,st.reps))), week:s.week||1});
-    const pr   = hist.length ? Math.max(...hist.map(h=>h.best)) : 0;
-    const sg   = getNextSuggestion(ex);
-    const rr   = getExRepRange(ex);
+          hist.push({date:s.date, best:Math.max(...se.sets.map(st=>epley(st.weight,st.reps))), week:s.week||1});
+
+    const pr = hist.length ? Math.max(...hist.map(h=>h.best)) : 0;
+    const sg = nextSuggestion(ex);
 
     html += `<div class="card">
-      <div class="flex-between mb-8">
+      <div class="flex-bet mb8">
         <div>
           <div style="font-family:var(--cond);font-weight:900;font-size:17px;letter-spacing:1px;text-transform:uppercase">${ex.name}</div>
-          <div class="exercise-meta">${rr} reps (current week) · ${ex.muscle}</div>
+          <div class="ex-meta">${ex.repRange} reps · ${ex.muscle}</div>
         </div>
         ${pr>0?`<span class="pr-badge">🏆 ${pr}kg</span>`:'<span class="tag tag-gray">No data</span>'}
       </div>
@@ -1030,40 +988,21 @@ function renderHistory() {
         <div class="stat-block">
           <div class="stat-label">Next Target</div>
           <div class="stat-value">${sg.weight}kg</div>
-          <div class="stat-sub">${sg.reps||'—'} reps${sg.estimated?' (est.)':''}</div>
+          <div class="stat-sub">${sg.reps||'—'} reps${sg.est?' (est.)':''}</div>
         </div>
       </div>
-      ${isBlock() && ex.weeks ? renderWeekCells(ex, hist) : ''}
-      ${hist.length >= 2 ? renderSparkline(hist) : ''}
+      ${hist.length>=2?renderSparkline(hist):''}
     </div>`;
   }
   el.innerHTML = html;
 }
 
-function renderWeekCells(ex, hist) {
-  const bl = blockLen();
-  const byCycleWeek = {};
-  for (const h of hist) byCycleWeek[h.week] = Math.max(byCycleWeek[h.week]||0, h.best);
-  const cells = ex.weeks.slice(0,bl).map((w,i)=>{
-    const wn=i+1, val=byCycleWeek[wn], isCur=wn===curWeek();
-    return `<div style="flex:1;text-align:center;padding:6px 4px;border:1px solid ${isCur?'var(--accent)':'var(--border)'};background:${isCur?'var(--accent-dim)':'var(--bg2)'};border-radius:2px">
-      <div style="font-family:var(--cond);font-size:9px;color:${isCur?'var(--accent)':'var(--text-faint)'};letter-spacing:1px">W${wn}</div>
-      <div style="font-family:var(--mono);font-size:13px;color:${val?'var(--text)':'var(--text-faint)'}">${val?val+'kg':'—'}</div>
-      <div style="font-family:var(--cond);font-size:8px;color:var(--text-faint)">${w.repRange}</div>
-    </div>`;
-  }).join('');
-  return `<div style="margin-top:10px">
-    <div style="font-family:var(--cond);font-size:9px;letter-spacing:2px;color:var(--text-faint);text-transform:uppercase;margin-bottom:6px">Best 1RM Est. Per Block Week</div>
-    <div style="display:flex;gap:4px">${cells}</div>
-  </div>`;
-}
-
 function renderSparkline(hist) {
   const sid = 'sp-'+Math.random().toString(36).slice(2,8);
   setTimeout(()=>{
-    const c = document.getElementById(sid); if (!c) return;
-    const ctx = c.getContext('2d');
-    const W = c.offsetWidth*devicePixelRatio, H = 70*devicePixelRatio;
+    const c = document.getElementById(sid); if(!c) return;
+    const ctx=c.getContext('2d');
+    const W=c.offsetWidth*devicePixelRatio, H=70*devicePixelRatio;
     c.width=W; c.height=H;
     const vals=hist.map(h=>h.best), mn=Math.min(...vals)*.95, mx=Math.max(...vals)*1.02;
     const sx=W/(vals.length-1||1), sy=H/(mx-mn||1);
@@ -1086,82 +1025,94 @@ function renderSparkline(hist) {
   </div>`;
 }
 
-// ═══════════════════════════════════
-// VOLUME PAGE
-// ═══════════════════════════════════
+// ════════════════════════════════════════
+// VOLUME
+// ════════════════════════════════════════
 function renderVolume() {
   const el = document.getElementById('volume-content');
-  const today = new Date(), dow = today.getDay()||7;
-  const wkStart = new Date(today); wkStart.setDate(today.getDate()-dow+1); wkStart.setHours(0,0,0,0);
-  const muscles = {}; let tSets=0, tReps=0;
-  const thisWeek = state.sessions.filter(s=>new Date(s.date)>=wkStart);
+  const now = new Date(), dow = now.getDay()||7;
+  const ws = new Date(now); ws.setDate(now.getDate()-dow+1); ws.setHours(0,0,0,0);
+  const muscles={}, thisWeek=S.sessions.filter(s=>new Date(s.date)>=ws);
+  let tSets=0, tReps=0;
+
   for (const s of thisWeek) {
     for (const ex of s.exercises) {
       let m='Other';
-      for (const d of DAYS) { const px=(state.plan[d]||[]).find(p=>p.id===ex.exerciseId); if(px){m=px.muscle;break;} }
+      for (const d of DAYS)
+        for (const wk of Object.keys(S.plan[d]||{})) {
+          const px=(S.plan[d][wk]||[]).find(p=>p.id===ex.exerciseId);
+          if (px) { m=px.muscle; break; }
+        }
       muscles[m]=(muscles[m]||0)+ex.sets.length;
-      tSets+=ex.sets.length; tReps+=ex.sets.reduce((a,s)=>a+s.reps,0);
+      tSets+=ex.sets.length;
+      tReps+=ex.sets.reduce((a,s)=>a+s.reps,0);
     }
   }
+
   if (!Object.keys(muscles).length) {
-    el.innerHTML=`<div class="card"><div class="empty-state"><div class="empty-icon">📊</div><div class="empty-text">No sessions this week yet</div></div></div>`;
+    el.innerHTML=`<div class="card"><div class="empty"><div class="empty-icon">📊</div><div class="empty-text">No sessions this week yet</div></div></div>`;
     return;
   }
+
   const rec={Chest:12,Back:14,Shoulders:12,Biceps:10,Triceps:10,Legs:14,Glutes:12,Core:10,Calves:10};
-  let html=`<div class="card"><div class="card-title"><div class="accent-dot"></div>This Week</div>
-    <div class="stat-grid mb-8">
+  let html=`<div class="card"><div class="card-title"><div class="dot"></div>This Week</div>
+    <div class="stat-grid mb8">
       <div class="stat-block"><div class="stat-label">Total Sets</div><div class="stat-value accent">${tSets}</div></div>
       <div class="stat-block"><div class="stat-label">Total Reps</div><div class="stat-value">${tReps}</div></div>
-    </div><div class="divider-label">Muscle Volume</div>`;
+    </div><div class="divider-lbl">Muscle Volume</div>`;
+
   for (const [m,sets] of Object.entries(muscles).sort((a,b)=>b[1]-a[1])) {
     const r=rec[m]||12, p=Math.min(sets/r*100,100);
     const col=sets>=r?'var(--green)':sets>=r*.6?'var(--accent)':'var(--red)';
     html+=`<div class="muscle-row">
       <div class="muscle-name">${m}</div>
-      <div class="muscle-bar-wrap"><div class="muscle-bar" style="width:${p}%;background:${col};box-shadow:0 0 8px ${col}40"></div></div>
+      <div class="muscle-bar-bg"><div class="muscle-bar" style="width:${p}%;background:${col};box-shadow:0 0 8px ${col}40"></div></div>
       <div class="muscle-sets" style="color:${col}">${sets}</div>
     </div>`;
   }
   html+=`<div style="font-size:11px;color:var(--text-faint);margin-top:8px;font-family:var(--cond);letter-spacing:1px">Green = on track with recommended weekly volume.</div></div>`;
-  html+=`<div class="card"><div class="card-title"><div class="accent-dot"></div>Sessions This Week</div>`;
+
+  html+=`<div class="card"><div class="card-title"><div class="dot"></div>Sessions This Week</div>`;
   for (const s of [...thisWeek].reverse())
-    html+=`<div class="exercise-item" style="cursor:default">
+    html+=`<div class="ex-item" style="cursor:default">
       <div style="flex:1">
-        <div class="exercise-name">${s.day}${s.week?` <span class="tag tag-orange" style="font-size:9px">W${s.week}</span>`:''}</div>
-        <div class="exercise-meta">${s.date} · ${s.exercises.length} ex · ${s.exercises.reduce((a,e)=>a+e.sets.length,0)} sets</div>
+        <div class="ex-name">${s.day}${s.week?` <span class="tag tag-orange" style="font-size:9px">W${s.week}</span>`:''}</div>
+        <div class="ex-meta">${s.date} · ${s.exercises.length} exercises · ${s.exercises.reduce((a,e)=>a+e.sets.length,0)} sets</div>
       </div></div>`;
   html+=`</div>`;
   el.innerHTML=html;
 }
 
-// ═══════════════════════════════════
+// ════════════════════════════════════════
 // SETTINGS
-// ═══════════════════════════════════
-function setProgramType(type) {
-  state.program.type = type;
-  document.getElementById('ptype-weekly').classList.toggle('selected', type==='weekly');
-  document.getElementById('ptype-block').classList.toggle('selected',  type==='block');
-  document.getElementById('block-length-row').style.display = type==='block' ? 'block' : 'none';
+// ════════════════════════════════════════
+function setProgType(type) {
+  S.prog.type = type;
+  document.getElementById('pt-weekly').classList.toggle('sel', type==='weekly');
+  document.getElementById('pt-block').classList.toggle('sel',  type==='block');
+  document.getElementById('bl-row').style.display = type==='block'?'block':'none';
 }
 
 function saveSettings() {
-  state.settings.restMultiplier = parseFloat(document.getElementById('setting-rest').value)||1.0;
-  state.settings.dropPct        = parseInt(document.getElementById('setting-drop').value)||10;
-  state.settings.increasePct    = parseInt(document.getElementById('setting-increase').value)||5;
-  state.program.blockLength     = parseInt(document.getElementById('setting-block-length').value)||4;
-  saveState(); updateWeekBadge();
+  S.settings.restMult = parseFloat(document.getElementById('s-rest').value)||1.0;
+  S.settings.dropPct  = parseInt(document.getElementById('s-drop').value)||10;
+  S.settings.incPct   = parseInt(document.getElementById('s-inc').value)||5;
+  S.prog.blockLen     = parseInt(document.getElementById('s-bl').value)||4;
+  save(); updateBadge();
 }
 
-document.getElementById('setting-rest').value         = state.settings.restMultiplier||1.0;
-document.getElementById('setting-drop').value         = state.settings.dropPct;
-document.getElementById('setting-increase').value     = state.settings.increasePct;
-document.getElementById('setting-block-length').value = state.program.blockLength||4;
-setProgramType(state.program.type||'weekly');
+// Init settings UI from saved state
+document.getElementById('s-rest').value = S.settings.restMult||1.0;
+document.getElementById('s-drop').value = S.settings.dropPct;
+document.getElementById('s-inc').value  = S.settings.incPct;
+document.getElementById('s-bl').value   = S.prog.blockLen||4;
+setProgType(S.prog.type||'weekly');
 
-// ═══════════════════════════════════
+// ════════════════════════════════════════
 // INIT
-// ═══════════════════════════════════
-updateWeekBadge();
+// ════════════════════════════════════════
+S.planWeek = S.prog.curWeek || 1;
+updateBadge();
 renderToday();
 renderPlan();
 </script>
